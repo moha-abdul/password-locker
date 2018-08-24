@@ -22,4 +22,5 @@ class User:
     def save_user(self):
         User.user.append(self)
 
-    
+    def delete_user(self):
+        User.user.remove(self)
