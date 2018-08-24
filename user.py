@@ -16,5 +16,10 @@ class User:
         self.username = username
         self.password = password
     
-    # def new_user(self):
-    #     User.user.append(self)
+    def new_user(self):
+        User.user.append(self)
+
+    def save_user(self):
+        User.user.append(self)
+
+    
