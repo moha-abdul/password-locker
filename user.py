@@ -24,3 +24,17 @@ class User:
 
     def delete_user(self):
         User.user.remove(self)
+
+    @classmethod
+    def find_user_by_username(cls, username):
+        for user in cls.user:
+            if user.username == username:
+                return user
+
+    @classmethod
+    def user_exists(cls, username):
+        for user in cls.user:
+            if user.username == username:
+                return True
+
+        return False
