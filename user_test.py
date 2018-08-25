@@ -1,10 +1,11 @@
 import unittest
 import pyperclip
 from user import User
+from profile import Profile
 
 class TestUser(unittest.TestCase):
     def setUp(self):
-        self.new_user = User("Mister", "Moham", "moha", "12345")
+        self.new_user = User("Mister", "Moham", "moha")
 
     def tearDown(self):
         User.user = []
@@ -13,7 +14,6 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.first_name, "Mister")
         self.assertEqual(self.new_user.last_name, "Moham")
         self.assertEqual(self.new_user.username, "moha")
-        self.assertEqual(self.new_user.password, "12345")
 
     def test_save_user(self):
         self.new_user.save_user()
@@ -21,14 +21,14 @@ class TestUser(unittest.TestCase):
 
     def test_delete_user(self):
         self.new_user.save_user()
-        test_user = User("Test", "meed", "useeer", "23456") # new test user
+        test_user = User("Test", "meed", "useeer") # new test user
         test_user.save_user()
         self.new_user.delete_user()
         self.assertEqual(len(User.user),1)
 
     def test_find_user_by_username(self):
         self.new_user.save_user()
-        test_user = User("Test", "Mohah", "usertest", "12457") # new test user
+        test_user = User("Test", "Mohah", "usertest") # new test user
         test_user.save_user()
         
         found_user = User.find_user_by_username("usertest")
@@ -37,7 +37,7 @@ class TestUser(unittest.TestCase):
 
     def test_user_exists(self):
         self.new_user.save_user()
-        test_user = User("Test", "User", "moood", "0711223344") # new test user
+        test_user = User("Test", "User", "moood") # new test user
         test_user.save_user()
 
         user_exists = User.user_exists("moood")
@@ -46,6 +46,9 @@ class TestUser(unittest.TestCase):
 
     def test_display_contacts(self):
         return User.display_users()
+
+    def test_new_profile(self):
+        return Profile.new_profile()
 
     # def test_copy_password(self):
     #     self.new_user.save_user()

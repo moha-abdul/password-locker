@@ -27,7 +27,7 @@ def main():
 	print("What username do you want?")
 
 	while True:
-		print("Hello Welcome to the applocker. What do you want to do? Use these short codes : \n cu - create a new user \n dc - display all users \n fu -find a user \n ex -exit the app \n ch - check if user exists \n fd - find user by username \n")
+		print("Hello Welcome to the applocker. What do you want to do? Use these short codes : \n cu - create a new user \n dp - display all profiles \n fp -find a profile by account \n ex -exit the app \n ch - check if user account exists")
 		first_name = input()
 		last_name = input()
 		username = input()
