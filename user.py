@@ -1,3 +1,4 @@
+import pyperclip
 
 class User:
     user = []
@@ -38,3 +39,12 @@ class User:
                 return True
 
         return False
+
+    @classmethod
+    def display_users(cls):
+        return cls.user
+
+    # @classmethod
+    # def copy_password(cls, password):
+    #     password_found = User.copy_password(password)
+    #     pyperclip.copy(password_found.password)

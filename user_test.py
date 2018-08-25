@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from user import User
 
 class TestUser(unittest.TestCase):
@@ -42,6 +43,17 @@ class TestUser(unittest.TestCase):
         user_exists = User.user_exists("moood")
 
         self.assertTrue(user_exists)
+
+    def test_display_contacts(self):
+        return User.display_users()
+
+    # def test_copy_password(self):
+    #     self.new_user.save_user()
+    #     self.new_user.password = password_found
+    #     pyperclip.copy(password_found)
+    #     # User.copy_password("0718")
+
+        # self.assertEqual(self.new_user.password, pyperclip.paste())
 
 if __name__ == '__main__':
     unittest.main()
