@@ -5,7 +5,7 @@ class User:
     '''
     this class creates  new instance of user data
     '''
-    def __init__(self, first_name, last_name, username, password):
+    def __init__(self, first_name, last_name, username):
         '''
         init method to define objects
         Args: 
@@ -15,7 +15,6 @@ class User:
         self.first_name =first_name
         self.last_name = last_name
         self.username = username
-        self.password = password
     
     def new_user(self):
         User.user.append(self)
@@ -27,7 +26,7 @@ class User:
         User.user.remove(self)
 
     @classmethod
-    def find_user_by_username(cls, username):
+    def find_user_by_account(cls, username):
         for user in cls.user:
             if user.username == username:
                 return user
