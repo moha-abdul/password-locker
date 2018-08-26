@@ -8,3 +8,6 @@ class Profile:
     def __init__(self, profile, password):
         self.profile = profile
         self.password = password
+
+    def new_profile(self):
+        Profile.profile.append(self)

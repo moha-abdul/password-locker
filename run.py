@@ -15,22 +15,33 @@ def del_users(user):
 	user.delete_user()
 
 def find_user(user):
-	return User.find_user_by_account(user) 
+	return User.find_user_by_username(user) 
 
-def check_existing_account(user):
+def check_existing_username(user):
 	return User.user_exists(user)
 
 def display_users():
-	return User.display_account()
+	return User.display_users()
 
 def main():
-	print("What username do you want?")
+	print("What would you like to do? \n")
+	print("cu - create new user \n ex - exit the app \n")
+	short_code = input().lower()
+	print("\n")
+	if short_code == "cu":
+		print("enter first name")
+		first_name = input()
+		print("\n")
+		print("enter last name")
+		last_name = input()
+		print("\n")
+		print("enter username")
+		username = input()
+
+	
 
 	while True:
-		print("Hello Welcome to the applocker. What do you want to do? Use these short codes : \n cu - create a new user \n dp - display all profiles \n fp -find a profile by account \n ex -exit the app \n ch - check if user account exists")
-		first_name = input()
-		last_name = input()
-		username = input()
+		print(f"Hello {username} Welcome to the applocker. What do you want to do? Use these short codes : \n cu - create a new profile \n dp - display all your profiles \n fp -find a profile by account \ncheck if user profile exists \n ex -exit the app \n")
 
 if __name__ == '__main__':
     main()
