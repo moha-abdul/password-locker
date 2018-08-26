@@ -7,8 +7,14 @@ class TestUser(unittest.TestCase):
     def setUp(self):
         self.new_user = User("Mister", "Moham", "moha")
 
+    def setUp2(self):
+        self.new_profile = Profile("Mister", "Moham")
+
     def tearDown(self):
         User.user = []
+
+    def tearDown(self):
+        Profile.profile = []
 
     def test_init(self):
         self.assertEqual(self.new_user.first_name, "Mister")
@@ -18,6 +24,10 @@ class TestUser(unittest.TestCase):
     def test_save_user(self):
         self.new_user.save_user()
         self.assertEqual(len(User.user),1)
+
+    def test_save_profile():
+        self.new_profile.save_profile()
+        self.assertEqual(len(Profile.profile),1)
 
     def test_delete_user(self):
         self.new_user.save_user()

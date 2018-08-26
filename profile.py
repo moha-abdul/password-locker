@@ -24,3 +24,7 @@ class Profile:
         for profile in cls.profile:
             if profile.account == account:
                 return profile
+    
+    @classmethod
+    def display_profiles(cls, profile):
+        return cls.profile
