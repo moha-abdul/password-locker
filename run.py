@@ -20,9 +20,9 @@ def create_profile(account, password): #create profile
 	return new_profile
 
 def del_profile(profile):
-	Profile.delete_profile(self)
+	Profile.delete_profile(profile)
 
-def find_profile(user):
+def find_profile(profile):
 	return Profile.find_profile_by_account(account) 
 
 def check_existing_username(user):

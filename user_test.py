@@ -52,8 +52,8 @@ class TestUser(unittest.TestCase):
 
         self.assertTrue(user_exists)
 
-    def test_display_contacts(self):
-        return User.display_users(self)
+    def test_display_profiles(self):
+        return Profile.display_profiles(self)
 
     # def test_copy_password(self):
     #     self.new_user.save_user()
