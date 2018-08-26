@@ -12,4 +12,9 @@ class Profile:
     def new_profile(self):
         Profile.profile.append(self)
 
+    def save_profile(self):
+        Profile.profile.append(self)
+
     # def save_profile(self):
+    def delete_profile(self):
+        Profile.profile.remove(self)

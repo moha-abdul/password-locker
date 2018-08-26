@@ -19,7 +19,8 @@ def create_profile(account, password): #create profile
 	new_user = Profile(account, password)
 	return new_profile
 
-
+def del_profile(profile):
+	user.delete_profile()
 
 def find_profile(user):
 	return Profile.find_profile_by_account(account) 

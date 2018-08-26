@@ -26,13 +26,13 @@ class TestUser(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user),1)
 
-    def test_save_profile(self):
-        self.new_user.save_user()
-        self.assertEqual(len(User.user),1)
-
-    def test_new_profile(self):
+    def test_delete_profile(self):
         self.new_profile.save_profile()
+        test_profile = Profile("Test", "meed") # new test profile
+        test_profile.save_profile()
+        self.new_profile.delete_profile()
         self.assertEqual(len(Profile.profile),1)
+
 
     def test_find_user_by_username(self):
         self.new_user.save_user()
