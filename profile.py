@@ -18,3 +18,9 @@ class Profile:
     # def save_profile(self):
     def delete_profile(self):
         Profile.profile.remove(self)
+
+    @classmethod
+    def find_profile_by_account(cls, account):
+        for profile in cls.profile:
+            if profile.account == account:
+                return profile

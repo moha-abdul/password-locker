@@ -5,7 +5,7 @@ from profile import Profile
 import string
 import random
 
-def create_user(first_name,last_name, username, password): #create user
+def create_user(first_name,last_name, username): #create user
 	new_user = User(first_name, last_name, username)
 	return new_user
 
@@ -16,11 +16,11 @@ def del_users(user):
 	user.delete_user()
 
 def create_profile(account, password): #create profile
-	new_user = Profile(account, password)
+	new_profile = Profile(account, password)
 	return new_profile
 
 def del_profile(profile):
-	user.delete_profile()
+	Profile.delete_profile(self)
 
 def find_profile(user):
 	return Profile.find_profile_by_account(account) 
@@ -46,9 +46,9 @@ def main():
 		print("enter username")
 		username = input()
 
-	else short_code == "ex":
-		print("Bye ...")
-        break
+	# else short_code == "ex":
+	# 	print("Bye ...")
+    #     break
 
 	
 
