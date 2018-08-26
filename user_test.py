@@ -1,20 +1,13 @@
 import unittest
 import pyperclip
 from user import User
-from profile import Profile
 
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.new_user = User("Mister", "Moham", "moha")
 
-    def setUp2(self):
-        self.new_profile = Profile("Mister", "Moham")
-
     def tearDown(self):
         User.user = []
-
-    def tearDown(self):
-        Profile.profile = []
 
     def test_init(self):
         self.assertEqual(self.new_user.first_name, "Mister")
