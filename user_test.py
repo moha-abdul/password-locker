@@ -26,6 +26,14 @@ class TestUser(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user),1)
 
+    def test_save_profile(self):
+        self.new_user.save_user()
+        self.assertEqual(len(User.user),1)
+
+    def test_new_profile(self):
+        self.new_profile.save_profile()
+        self.assertEqual(len(Profile.profile),1)
+
     def test_find_user_by_username(self):
         self.new_user.save_user()
         test_user = User("Test", "Mohah", "usertest") # new test user
@@ -45,10 +53,7 @@ class TestUser(unittest.TestCase):
         self.assertTrue(user_exists)
 
     def test_display_contacts(self):
-        return User.display_users()
-
-    def test_new_profile(self):
-        return Profile.new_profile()
+        return User.display_users(self)
 
     # def test_copy_password(self):
     #     self.new_user.save_user()
