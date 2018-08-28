@@ -5,12 +5,12 @@ from profile import Profile
 import string
 import random
 
-def create_user(first_name,last_name, username): #create user
-	new_user = User(first_name, last_name, username)
+def create_user(username, password): #create user
+	new_user = User(username, password)
 	return new_user
 
 def create_profile(account, password): #create profile
-	new_profile = Profile(account, password, pass_length)
+	new_profile = Profile(account, password)
 	return new_profile
 
 def save_users(user):
@@ -31,59 +31,88 @@ def find_profile(profile):
 # def check_existing_username(user):
 # 	return User.user_exists(user)
 
-# def display_users():
-# 	return User.display_users()
+def display_profiles(profile):
+	return Profile.display_profiles(profile)
 
-def password_generate(pass_length):
-    return Profile.password_generate(pass_length)
+# def password_generate(pass_length):
+    # return Profile.password_generate(pass_length)
 
 short_code = input().lower()
 
 def main():
-	
-	print("Welcome to my new app Pasword Locker \n")
-	print("create user account to continue")
-	# print("cu - create new user \n du - delete user \n ex - exit the app \n")
+    print("Welcome to your password locker. What is username do you want to use?")
+    username = input()
+    print("")
 
-	short_code = input().lower()
-	print("\n")
-	
-	print("What is your first name")
-	first_name = input()
-	print("\n")
-	print("What is your last name")
-	last_name = input()
-	print("\n")
-	print("Create a username")
-	username = input()
+    print(f"Welcome {username}. What would you like to do?")
+    print("")
 
-	print(f"Hello {first_name} {last_name}. You are logged in as {username} \n")
-	print(f"What would you like to do {username}? Use the short codes. cp - create profile \n dp - delete profile \n fp - find profile \n ap - see all profiles ")
+    while True:
+        print("""Use these short codes: cn - create new account lg - log in to your password profiles lt - log out of you account ex - exit profile list.""")
+        short_code = input().lower()
+        if short_code == "cn":
+            print("Name of profile account")
 
-	if short_code == "cp":
-		password = input().lower()
-		print("Enter account name to create profile like twitter -")
-        # account = input()
-		print ("Do you want to \n g - generate from system\n s - set own password")
-		password = input().lower()
-		if password == "g":
-			pass_length = int(input("How many characters do you want your password to be?"))
-			password = password_generate(pass_length)
-			print(f"Your new password is {password}")
-		else:
-			print("Write a password of your own")
-			password = input()
+            print("PLease enter your first name")
+            first_name = input()
 
-		  
-	# else short_code == "du":
+            print("Enter last name.")
+            last_name = input()
 
-	# 	print("Bye ...")
-    #     break
+			print("create a personal password.")
+            password = input()
 
-	
+			save_users(create_user(username, password))
+        else:
+            print(f"New account created for - {first_name} {last_name} your account password is - {password}")
+            print("")
+            print("You can now create your password profiles")
+        while True:
+            print("""Use these short codes:
+                  cp -  new profile
+                  ap - display all profiles
+                  fp - find profile
+                  ex - exit the profiles.""")
+            short_code = input().lower()
+            if short_code == "cp":
+                print("What account are you creating? e.g twitter")
+                account_name = input()
+				print("Create your password \n")
+            	password = input()
+                print(f" The password for {account} is {password}")
 
-	# while True:
-		# print(f"Hello {username} Welcome to the applocker. What do you want to do? Use these short codes : \n cu - create a new profile \n dp - display all your profiles \n fp -find a profile by account \ncheck if user profile exists \n ex -exit the app \n")
+                # save_profile(create_profile(account_name, password, pass_length)
+            elif short_code == "ap":
+                if display_profiles():
+                    print("Displaying all profiles")
+                    print("")
+                    for profile in display_profiles(profile):
+                        print(f"Account: {profile.account}, Password: {profile.password}, Password length: {profile.pass_length}")
+                else:
+                    print("The profile does not exist")
+
+            elif short_code == "fp":
+                print("Enter the profile you want to find")
+
+                account = input()
+                if profile_exists(account):
+                    searched_profile = find_profile(account)
+                    print("\n")
+                    print(f"{searched_profile.account}")
+                    print(f"Password - {searched_profile.account}")
+                    print("")
+                    print(
+                        f"Password Length - {searched_profile.password}")
+                else:
+                    print("profile does not exist")
+                    print("")
+
+            elif short_code == "ex":
+                print("")
+                print("Thank you for using the password locker. Bye")
+                print("")
+                break
+
 
 if __name__ == '__main__':
     main()

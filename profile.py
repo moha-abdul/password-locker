@@ -6,10 +6,9 @@ class Profile:
     '''
     this class creates  new instance of user data
     '''
-    def __init__(self, account, password, pass_length):
+    def __init__(self, account, password):
         self.account = account
         self.password = password
-        self.pass_length = pass_length
 
     def new_profile(self):
         Profile.profile.append(self)
@@ -38,9 +37,9 @@ class Profile:
 
         return False
     
-    @classmethod
-    def password_generate(cls, pass_length):
-        string = "abcdefghigjkmnopqrstuvwxyz1234567890-_=+{}\|"';>./,`!@#$^&*()`'
-        password = "".join(random.sample(string, int(pass_length)))
-        account_passsword = password
-        return account_passsword
+    # @classmethod
+    # def password_generate(cls, pass_length):
+    #     string = "abcdefghigjkmnopqrstuvwxyz1234567890-_=+{,}\|"';>./`!@#$^&*()`'
+    #     password = "".join(random.sample(string)
+    #     profile_password = password
+    #     return profile_password
