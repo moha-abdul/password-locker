@@ -1,5 +1,4 @@
-import pyperclip
-import random
+# import random
 
 class Profile:
     profile = []
@@ -11,35 +10,46 @@ class Profile:
         self.password = password
 
     def new_profile(self):
+        '''
+           Method that creates a profile
+        '''
         Profile.profile.append(self)
 
     def save_profile(self):
+        '''
+           Method that saves a profile
+        '''
         Profile.profile.append(self)
 
     def delete_profile(self):
+        '''
+           Method that deletes a profile
+        '''
         Profile.profile.remove(self)
 
     @classmethod
     def find_profile_by_account(cls, account):
+        '''
+           Method that finds a profile by account name
+        '''
         for profile in cls.profile:
             if profile.account == account:
                 return profile
     
     @classmethod
     def display_profiles(cls, profile):
+        '''
+           Method that displays all profiles
+        '''
         return cls.profile
     
     @classmethod
     def profile_exists(cls, account):
+        '''
+           Method that checks if a profile exists
+        '''
         for profile in cls.profile:
             if profile.account == account:
                 return True
 
         return False
-    
-    # @classmethod
-    # def password_generate(cls, pass_length):
-    #     string = "abcdefghigjkmnopqrstuvwxyz1234567890-_=+{,}\|"';>./`!@#$^&*()`'
-    #     password = "".join(random.sample(string)
-    #     profile_password = password
-    #     return profile_password

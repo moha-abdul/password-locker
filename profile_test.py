@@ -1,24 +1,42 @@
-import unittest
-import pyperclip
-from profile import Profile
+import unittest # Importing the unittest module
+
+from profile import Profile #Importing the profile class
 
 class TestProfile(unittest.TestCase):
+    '''
+    class  called TestProfile, that inherits from unittest TestCase
+    '''
     def setUp(self):
-        self.new_profile = Profile("youtube", "mohamed")
+        '''
+        create profile object
+        '''
+        self.new_profile = Profile("youtube", "1234mister")
 
     def tearDown(self):
+        '''
+        create empty object list that runs before every test
+        '''
         Profile.profile = []
 
     def test_init(self):
-        self.assertEqual(self.new_profile.account, "twitter")
+        '''
+          test to confirm if profile class object has been instantiated correctly
+        '''
+        self.assertEqual(self.new_profile.account, "youtube")
         self.assertEqual(self.new_profile.password, "1234mister")
         
 
     def test_save_profile(self):
+        '''
+        create test to save profile object
+        '''
         self.new_profile.save_profile()
         self.assertEqual(len(Profile.profile),1)
 
     def test_delete_profile(self):
+        '''
+        create test to delete profile object
+        '''
         self.new_profile.save_profile()
         test_profile = Profile("Test_Account", "meed") # new test profile
         test_profile.save_profile()
@@ -26,6 +44,9 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(len(Profile.profile),1)
 
     def test_find_profile_by_account(self):
+        '''
+        create test to find profile by account
+        '''
         self.new_profile.save_profile()
         test_profile = Profile("Test", "userpass") # new test profile
         test_profile.save_profile()
@@ -34,12 +55,11 @@ class TestProfile(unittest.TestCase):
         self.assertEqual(found_profile.account, test_profile.account)
 
     def test_display_profiles(self):
+        '''
+        create test to display all profiles
+        '''
         return Profile.display_profiles(self)
 
-    # def test_password_generate(self):
-    #     """
-    #     This will test to see if the password generator runs.
-    #     """
-    #     self.new_profile.save_profile()
-    #     gen_password = self.new_profile.password_generate()
-    #     self.assertNotEqual(gen_password, self.new_profile.password)
+
+if __name__ == '__main__':
+    unittest.main()

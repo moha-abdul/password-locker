@@ -1,5 +1,3 @@
-import pyperclip
-
 class User:
     user = []
     '''
@@ -17,25 +15,19 @@ class User:
         
     
     def new_user(self):
+        '''
+           Method that appends a user
+        '''
         User.user.append(self)
 
     def save_user(self):
+        '''
+           Method that saves a new user
+        '''
         User.user.append(self)
 
     def delete_user(self):
+        '''
+           Method that deletes a user
+        '''
         User.user.remove(self)
-
-    # @classmethod
-    # def find_user_by_username(cls, username):
-    #     for user in cls.user:
-    #         if user.username == username:
-    #             return user
-
-    # @classmethod
-    # def display_users(cls):
-    #     return cls.user
-
-    # @classmethod
-    # def copy_password(cls, password):
-    #     password_found = User.copy_password(password)
-    #     pyperclip.copy(password_found.password)
