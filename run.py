@@ -35,8 +35,6 @@ def find_profile(profile):
     ''' Method that finds a profile by account name '''
     return Profile.find_profile_by_account(profile) 
 
-# def check_existing_username(user):
-# 	return User.user_exists(user)
 
 def display_profiles(profile):
     ''' Method that displays all profiles '''
@@ -44,17 +42,14 @@ def display_profiles(profile):
 
 
 
-# def password_generate(pass_length):
-    # return Profile.password_generate(pass_length)
-
-short_code = input().lower()
 
 def main():
+    short_code = input().lower()
     print("Welcome to your password locker. What is username do you want to use?")
     username = input()
     print("")
 
-    print(f"Welcome {username}. Use the short codes please" )
+    print(f"Welcome {username}. Use the short codes please")
     print("")
 
     while True:

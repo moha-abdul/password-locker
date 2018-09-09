@@ -1,6 +1,6 @@
 ## Password Locker App Project
 
-The project is a python based application that is is entirely based on the command line. You create profiles and generate/set own passwords.
+The project is a python based application that is is entirely based on the command line. You create profiles and set own passwords.
 
 ## Project Author
 
